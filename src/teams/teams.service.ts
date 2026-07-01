@@ -33,6 +33,7 @@ export class TeamsService {
     }
     return team;
   }
+  
 
   async update(id: string, updateTeamDto: UpdateTeamDto) {
     const team = await this.findOne(id);

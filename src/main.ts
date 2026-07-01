@@ -20,6 +20,7 @@ async function bootstrap() {
     .setTitle('PokeTeam Manager API')
     .setDescription('API RESTful para gerenciamento de Treinadores e seus Times de Pokémon')
     .setVersion('1.0')
+    .addBearerAuth()
     .build();
     
   const document = SwaggerModule.createDocument(app, config);

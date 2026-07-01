@@ -5,11 +5,9 @@ import { TrainersModule } from './trainers/trainers.module';
 import { Trainer } from './trainers/entities/trainer.entity';
 import { PokeApiModule } from './external/poke-api/poke-api.module';
 import { TeamsModule } from './teams/teams.module';
-// ... imports anteriores
 import { Team } from './teams/entities/team.entity';
 import { TeamPokemon } from './teams/entities/team-pokemon.entity';
-
-// ... dentro do entities:
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -37,6 +35,8 @@ import { TeamPokemon } from './teams/entities/team-pokemon.entity';
     // 3. Importa os módulos da aplicação
     TrainersModule,
 
+    AuthModule,
+    
     PokeApiModule,
 
     TeamsModule,

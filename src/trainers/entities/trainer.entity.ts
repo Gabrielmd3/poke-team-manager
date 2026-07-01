@@ -9,6 +9,11 @@ export class Trainer {
   @Column({ length: 100 })
   name: string;
 
+  @Column({ unique: true, length: 100 })
+  email!: string;
+
+  @Column()
+  password!: string;
   @Column({ length: 100, nullable: true })
   hometown?: string;
 

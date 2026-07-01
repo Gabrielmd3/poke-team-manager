@@ -1,14 +1,36 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException, ConflictException } from '@nestjs/common';
 import { TrainersRepository } from './trainers.repository';
 import { CreateTrainerDto } from './dto/create-trainer.dto';
 import { UpdateTrainerDto } from './dto/update-trainer.dto';
+import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class TrainersService {
-  constructor(private readonly trainersRepository: TrainersRepository) {}
+  constructor(private readonly trainersRepository: TrainersRepository) { }
 
   async create(createTrainerDto: CreateTrainerDto) {
-    return await this.trainersRepository.create(createTrainerDto);
+
+    const hashedPassword = await bcrypt.hash(createTrainerDto.password, 10);
+
+    const trainerData = {
+      ...createTrainerDto,
+      password: hashedPassword,
+    };
+
+    try {
+      return await this.trainersRepository.create(trainerData);
+    } catch (error) {
+      if ((error as any).code === '23505') {
+        throw new ConflictException('Este email já está em uso.');
+      }
+      throw error;
+    }
+  }
+
+
+  async findByEmail(email: string) {
+    // Supondo que você crie este método no seu repository:
+    return await this.trainersRepository.findByEmail(email); 
   }
 
   async findAll() {

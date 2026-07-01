@@ -1,16 +1,24 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
-import { IsNotEmpty, IsOptional, IsString, MaxLength } from 'class-validator';
+import { IsEmail, IsNotEmpty, IsOptional, IsString, MinLength } from 'class-validator';
 
 export class CreateTrainerDto {
-  @ApiProperty({ example: 'Ash Ketchum', description: 'Nome do treinador' })
+  @ApiProperty({ example: 'Ash Ketchum' })
   @IsString()
-  @IsNotEmpty({ message: 'O nome do treinador é obrigatório' })
-  @MaxLength(100)
+  @IsNotEmpty()
   name: string;
 
-  @ApiPropertyOptional({ example: 'Pallet Town', description: 'Cidade de origem' })
+  @ApiProperty({ example: 'ash@pokemon.com' })
+  @IsEmail({}, { message: 'Forneça um email válido' })
+  @IsNotEmpty()
+  email: string;
+
+  @ApiProperty({ example: 'senha123' })
   @IsString()
+  @MinLength(6, { message: 'A senha deve ter no mínimo 6 caracteres' })
+  @IsNotEmpty()
+  password: string;
+
+  @ApiPropertyOptional({ example: 'Pallet Town' })
   @IsOptional()
-  @MaxLength(100)
   hometown?: string;
 }

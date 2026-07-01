@@ -24,6 +24,10 @@ export class TrainersRepository {
     return await this.ormRepository.findOne({ where: { id } });
   }
 
+  async findByEmail(email: string): Promise<Trainer | null> {
+    return await this.ormRepository.findOne({ where: { email } });
+  }
+  
   async save(trainer: Trainer): Promise<Trainer> {
     return await this.ormRepository.save(trainer);
   }
