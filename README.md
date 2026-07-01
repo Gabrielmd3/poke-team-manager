@@ -1,7 +1,5 @@
 # ⚡ PokeTeam Manager API
 
-# ⚡ PokeTeam Manager API
-
 Uma API RESTful desenvolvida em **Nest.JS** para gerenciar Treinadores e seus respectivos times de Pokémon, integrada com a **PokéAPI** oficial e persistência de dados em **PostgreSQL** via Docker.
 
 ## 🛠️ Tecnologias Utilizadas
@@ -78,13 +76,13 @@ Com a aplicação rodando, acesse a interface interativa do Swagger para testar 
 
 Para testar as rotas protegidas (como o gerenciamento de times), siga o fluxo abaixo:
 
-    Cadastro: Vá no endpoint POST /trainers e crie um novo treinador informando nome, cidade, email e senha.
+  1.  Cadastro: Vá no endpoint POST /trainers e crie um novo treinador informando nome, cidade, email e senha.
 
-    Login: Acesse POST /auth/login com as credenciais criadas. O servidor retornará um access_token (JWT). Copie esse token.
+  2.  Login: Acesse POST /auth/login com as credenciais criadas. O servidor retornará um access_token (JWT). Copie esse token.
 
-    Autenticação no Swagger: Clique no botão verde Authorize (no topo direito da tela do Swagger) ou no ícone de cadeado das rotas protegidas, cole o token no campo de valor e confirme.
+  3.  Autenticação no Swagger: Clique no botão verde Authorize (no topo direito da tela do Swagger) ou no ícone de cadeado das rotas protegidas, cole o token no campo de valor e confirme.
 
-    Uso: Agora todas as rotas protegidas do bloco de Teams estarão liberadas para uso automático através do token injetado no cabeçalho das requisições.
+  4.  Uso: Agora todas as rotas protegidas do bloco de Teams estarão liberadas para uso automático através do token injetado no cabeçalho das requisições.
 
 ---
 *Desenvolvido como case técnico para avaliação de Backend.*
