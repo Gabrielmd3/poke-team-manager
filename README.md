@@ -26,39 +26,8 @@ Este projeto foi estruturado seguindo as melhores práticas do ecossistema Nest.
 Certifique-se de ter o **Docker** e o **Node.js (v18+)** instalados na sua máquina.
 
 **1. Clone o repositório e instale as dependências**
-\`\`\`bash
+
+```bash
 git clone <seu-link-do-git>
 cd poke-team-manager
 npm install
-\`\`\`
-
-**2. Configure as Variáveis de Ambiente**
-Crie um arquivo `.env` na raiz do projeto (`poke-team-manager/.env`) e adicione as seguintes credenciais:
-\`\`\`env
-PORT=3000
-DB_HOST=localhost
-DB_PORT=5432
-DB_USERNAME=pokeuser
-DB_PASSWORD=pokepassword
-DB_DATABASE=pokedb
-\`\`\`
-
-**3. Suba o Banco de Dados com Docker**
-\`\`\`bash
-docker-compose up -d
-\`\`\`
-
-**4. Inicie o Servidor Nest.JS**
-\`\`\`bash
-# Modo de desenvolvimento
-npm run start:dev
-\`\`\`
-
-## 📚 Documentação (Swagger)
-
-Com a aplicação rodando, acesse a interface interativa do Swagger para testar todos os endpoints (CRUD de Trainers, Teams e integração com Pokémons):
-
-👉 **[http://localhost:3000/api/docs](http://localhost:3000/api/docs)**
-
----
-*Desenvolvido como case técnico para avaliação de Backend.*
