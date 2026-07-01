@@ -28,7 +28,7 @@ Certifique-se de ter o **Docker** e o **Node.js (v18+)** instalados na sua máqu
 **1. Clone o repositório e instale as dependências**
 
 ```bash
-git clone <seu-link-do-git>
+git clone https://github.com/Gabrielmd3/poke-team-manager.git
 cd poke-team-manager
 npm install
 ```
